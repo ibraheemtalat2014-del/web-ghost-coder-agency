@@ -24,7 +24,7 @@ export const AboutUs: React.FC<AboutProps> = ({ onQuoteClick }) => {
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-cyan-400 mb-2 bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-lg">
               <Terminal className="w-3.5 h-3.5" />
-              <span>// ABOUT OUR AGENCY</span>
+              <span>ABOUT OUR AGENCY</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-6" style={{ textWrap: 'balance' }}>
               Clean Code, Lightning Speeds &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">1 - 2 Days Delivery</span>

@@ -23,7 +23,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onQuoteCl
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-cyan-400 mb-2 bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-lg">
               <Terminal className="w-3.5 h-3.5" />
-              <span>// PORTFOLIO &amp; ARCHITECTURE</span>
+              <span>PORTFOLIO &amp; ARCHITECTURE</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight" style={{ textWrap: 'balance' }}>
               Sample Projects Built in <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">1 - 2 Days</span>

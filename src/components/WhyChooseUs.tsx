@@ -42,7 +42,7 @@ export const WhyChooseUs: React.FC = () => {
         <div className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-cyan-400 mb-2 bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-lg">
             <Terminal className="w-3.5 h-3.5" />
-            <span>// COMPETITIVE ADVANTAGE</span>
+            <span>COMPETITIVE ADVANTAGE</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight" style={{ textWrap: 'balance' }}>
             Why Clients Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">Web Ghost Coder Agency</span>

@@ -25,14 +25,14 @@ export const Advantages: React.FC<AdvantagesProps> = ({ onQuoteClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-extrabold tracking-wider uppercase text-sky-800 dark:text-cyan-400 mb-2 bg-sky-100 dark:bg-cyan-950/60 border border-sky-300 dark:border-cyan-500/30 px-3 py-1 rounded-lg">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>// THE CODER ADVANTAGE</span>
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-sky-800 dark:text-cyan-400 mb-2 bg-sky-100 dark:bg-cyan-950/60 border border-sky-300 dark:border-cyan-500/30 px-3.5 py-1.5 rounded-xl shadow-xs">
+            <Terminal className="w-4 h-4" />
+            <span>07. THE CODER ADVANTAGE</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight" style={{ textWrap: 'balance' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight" style={{ textWrap: 'balance' }}>
             Built in <span className="coder-gradient-text">1 - 2 Days</span> with Modern Code &amp; Transparent Rates
           </h2>
-          <p className="mt-4 text-base text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+          <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
             Forget about slow agencies that take weeks or months. We build, optimize, and deploy complete, high-converting websites in just 24 to 48 hours.
           </p>
         </div>
@@ -50,13 +50,13 @@ export const Advantages: React.FC<AdvantagesProps> = ({ onQuoteClick }) => {
                   <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border border-sky-200 dark:border-cyan-500/30 flex items-center justify-center group-hover:scale-105 transition-all shadow-sm">
                     {getIcon(adv.icon)}
                   </div>
-                  <span className="text-xs font-mono font-black text-sky-800 dark:text-cyan-400 bg-sky-100 dark:bg-cyan-950/80 px-2.5 py-1 rounded-md border border-sky-200 dark:border-cyan-500/20">
-                    0{idx + 1}_FEATURE
+                  <span className="text-xs sm:text-sm font-mono font-bold text-sky-800 dark:text-cyan-400 bg-sky-100 dark:bg-cyan-950/80 px-3 py-1 rounded-lg border border-sky-200 dark:border-cyan-500/20">
+                    0{idx + 1}. Advantage
                   </span>
                 </div>
 
                 {/* Advantage Title */}
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-1.5 tracking-tight group-hover:text-sky-600 dark:group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-sky-600 dark:group-hover:text-cyan-300 transition-colors">
                   {adv.title}
                 </h3>
 

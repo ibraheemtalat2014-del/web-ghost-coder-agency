@@ -86,27 +86,27 @@ export const QuoteEstimator: React.FC<QuoteEstimatorProps> = ({ onApplyEstimateT
   };
 
   return (
-    <section id="estimator" className="py-20 bg-[#060810] border-b border-cyan-500/20">
+    <section id="estimator" className="py-20 bg-slate-50 dark:bg-[#060810] border-b border-slate-200 dark:border-cyan-500/20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-cyan-400 mb-2 bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-lg">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>// INSTANT COST ESTIMATOR</span>
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-sky-800 dark:text-cyan-400 mb-2 bg-sky-100 dark:bg-cyan-950/60 border border-sky-300 dark:border-cyan-500/30 px-3.5 py-1.5 rounded-xl shadow-xs">
+            <Terminal className="w-4 h-4" />
+            <span>05. INTERACTIVE COST &amp; TIMELINE ESTIMATOR</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight" style={{ textWrap: 'balance' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight" style={{ textWrap: 'balance' }}>
             Instant Project Cost &amp; Timeline Calculator
           </h2>
-          <p className="mt-3 text-base text-slate-300">
-            Configure your exact requirements. All packages are delivered in <span className="text-emerald-400 font-bold">1 - 2 Days</span>.
+          <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 font-medium">
+            Configure your exact requirements. All packages are delivered in <span className="text-emerald-700 dark:text-emerald-400 font-bold">1 - 2 Days</span> with direct coder access.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Controls Column (7 cols) */}
-          <div className="lg:col-span-7 space-y-8 bg-[#0b101e]/90 p-6 sm:p-8 rounded-2xl border border-cyan-500/30 shadow-xl">
+          <div className="lg:col-span-7 space-y-8 bg-white dark:bg-[#0b101e]/90 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-cyan-500/30 shadow-xl">
             {/* 1. Project Type Selector */}
             <div>
-              <label className="block text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider mb-3">
+              <label className="block text-xs sm:text-sm font-mono font-bold text-sky-800 dark:text-cyan-400 uppercase tracking-wider mb-3">
                 1. Select Website Category
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">

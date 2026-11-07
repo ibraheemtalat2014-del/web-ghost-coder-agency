@@ -8,17 +8,17 @@ interface ProcessProps {
 
 export const DevelopmentProcess: React.FC<ProcessProps> = ({ onQuoteClick }) => {
   return (
-    <section id="process" className="py-20 bg-[#060810] border-b border-cyan-500/20">
+    <section id="process" className="py-20 bg-slate-50 dark:bg-[#060810] border-b border-slate-200 dark:border-cyan-500/20 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-cyan-400 mb-2 bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-lg">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>// 48-HOUR SPRINT PIPELINE</span>
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-sky-800 dark:text-cyan-400 mb-2 bg-sky-100 dark:bg-cyan-950/60 border border-sky-300 dark:border-cyan-500/30 px-3.5 py-1.5 rounded-xl shadow-xs">
+            <Terminal className="w-4 h-4" />
+            <span>06. 48-HOUR SPRINT PIPELINE</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight" style={{ textWrap: 'balance' }}>
-            From Concept to Live Website in <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">1 - 2 Days</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight" style={{ textWrap: 'balance' }}>
+            From Concept to Live Website in <span className="coder-gradient-text">1 - 2 Days</span>
           </h2>
-          <p className="mt-4 text-base text-slate-300">
+          <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 font-medium">
             A battle-tested 48-hour development pipeline engineered for zero delays, constant progress updates, and rapid production deployment.
           </p>
         </div>

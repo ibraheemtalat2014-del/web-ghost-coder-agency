@@ -20,6 +20,8 @@ import { ServiceModal } from './components/ServiceModal';
 import { PortalLoginModal } from './components/portal/PortalLoginModal';
 import { PortalDashboard } from './components/portal/PortalDashboard';
 import { OrdersInboxModal } from './components/portal/OrdersInboxModal';
+import { CinematicIntro } from './components/CinematicIntro';
+import { WebsiteMenuCards } from './components/WebsiteMenuCards';
 import { ServiceItem, PortfolioItem } from './types';
 import { PortalUser, ProjectData } from './types/portal';
 
@@ -36,6 +38,17 @@ export default function App() {
   const [isOrdersModalOpen, setIsOrdersModalOpen] = useState(false);
   const [portalUser, setPortalUser] = useState<PortalUser | null>(null);
   const [portalProject, setPortalProject] = useState<ProjectData | null>(null);
+
+  // Cinematic 3D Intro State: Always shows to user by default on visit or refresh
+  const [showIntro, setShowIntro] = useState<boolean>(true);
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+  };
+
+  const handleReplayIntro = () => {
+    setShowIntro(true);
+  };
 
   const scrollToContact = () => {
     const el = document.getElementById('contact');
@@ -112,11 +125,15 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-white transition-colors duration-200">
+      {/* 3D Cinematic Coding Intro Animation (5-6s, once per session, with skip button) */}
+      {showIntro && <CinematicIntro onComplete={handleIntroComplete} />}
+
       {/* Top 3-Zone Navigation */}
       <Navbar
         onQuoteClick={scrollToContact}
         onClientPortalClick={() => setIsPortalLoginOpen(true)}
         onOrdersClick={() => setIsOrdersModalOpen(true)}
+        onReplayIntro={handleReplayIntro}
       />
 
       {/* Main Agency Sections */}
@@ -126,6 +143,9 @@ export default function App() {
           onQuoteClick={scrollToContact}
           onExploreServicesClick={scrollToServices}
         />
+
+        {/* Avant-Garde Website Directory & Representable Menu Cards Deck */}
+        <WebsiteMenuCards />
 
         {/* 3 Core Advantages Section */}
         <Advantages onQuoteClick={scrollToContact} />

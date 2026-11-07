@@ -192,7 +192,7 @@ export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
     title: 'Oakwood Educational Academy',
     category: 'school',
     categoryLabel: 'School & Academy Portal',
-    image: '/src/assets/images/portfolio_school_web_1793901829032.jpg',
+    image: '/assets/images/portfolio_school_web_1793901829032.jpg',
     description:
       'A complete digital campus redesign for a prestigious K-12 academy, featuring digital student admissions, academic calendar, faculty directory, and parent portal.',
     client: 'Oakwood Educational Academy',
@@ -211,7 +211,7 @@ export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
     title: 'Aethelred Health Care & Hospital',
     category: 'hospital',
     categoryLabel: 'Hospital & Healthcare Platform',
-    image: '/src/assets/images/portfolio_hospital_web_1793901829786.jpg',
+    image: '/assets/images/portfolio_hospital_web_1793901829786.jpg',
     description:
       'A patient-centered healthcare platform with automated doctor appointment booking, department directory, clinical services pricing, and emergency care hotline.',
     client: 'Aethelred Medical Center',
@@ -230,7 +230,7 @@ export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
     title: 'Quantum Growth Partners & Ads Funnel',
     category: 'landing',
     categoryLabel: 'Google Ads High-Converting Landing Page',
-    image: '/src/assets/images/portfolio_corporate_web_1793901829545.jpg',
+    image: '/assets/images/portfolio_corporate_web_1793901829545.jpg',
     description:
       'A performance marketing landing page built for high-spend Google Ads campaigns, designed for instant conversion with proof bento grids and sub-second load times.',
     client: 'Quantum Growth Partners',
@@ -249,7 +249,7 @@ export const PORTFOLIO_PROJECTS: PortfolioItem[] = [
     title: 'Apex Logistics & Commercial Enterprise',
     category: 'business',
     categoryLabel: 'Corporate Business Website',
-    image: '/src/assets/images/hero_agency_studio_1793901828541.jpg',
+    image: '/assets/images/hero_agency_studio_1793901828541.jpg',
     description:
       'An authoritative corporate portal for a national logistics network, providing instant quotation requests, service fleet breakdown, and client case studies.',
     client: 'Apex Global Enterprises',
@@ -274,7 +274,7 @@ export const PORTFOLIO_PPT_DECKS: PortfolioPPTSlide[] = [
     subtitle: 'From Paper Admissions to 240% Online Student Enrolment Surge',
     category: 'School Website & Portal',
     categoryLabel: 'Academic System',
-    image: '/src/assets/images/portfolio_school_web_1793901829032.jpg',
+    image: '/assets/images/portfolio_school_web_1793901829032.jpg',
     client: 'Oakwood Educational Academy',
     turnaround: 'Delivered in 48 Hours',
     problemStatement:
@@ -297,7 +297,7 @@ export const PORTFOLIO_PPT_DECKS: PortfolioPPTSlide[] = [
     subtitle: 'Automated Doctor Schedules & 24/7 WhatsApp Emergency Triage',
     category: 'Hospital & Healthcare Platform',
     categoryLabel: 'Clinical System',
-    image: '/src/assets/images/portfolio_hospital_web_1793901829786.jpg',
+    image: '/assets/images/portfolio_hospital_web_1793901829786.jpg',
     client: 'Aethelred Medical Center',
     turnaround: 'Delivered in 2 Days',
     problemStatement:
@@ -320,7 +320,7 @@ export const PORTFOLIO_PPT_DECKS: PortfolioPPTSlide[] = [
     subtitle: '98/100 PageSpeed & 11.4% Conversion Rate on Paid Google Ads',
     category: 'Google Ads Landing Page',
     categoryLabel: 'PPC Conversion Funnel',
-    image: '/src/assets/images/portfolio_corporate_web_1793901829545.jpg',
+    image: '/assets/images/portfolio_corporate_web_1793901829545.jpg',
     client: 'Quantum Growth Partners',
     turnaround: 'Delivered in 24 Hours',
     problemStatement:
@@ -343,7 +343,7 @@ export const PORTFOLIO_PPT_DECKS: PortfolioPPTSlide[] = [
     subtitle: 'Interactive Commercial Quoting Engine with $180,000 Pipeline Generated',
     category: 'Corporate Business Website',
     categoryLabel: 'Commercial Enterprise',
-    image: '/src/assets/images/hero_agency_studio_1793901828541.jpg',
+    image: '/assets/images/hero_agency_studio_1793901828541.jpg',
     client: 'Apex Global Enterprises',
     turnaround: 'Delivered in 48 Hours',
     problemStatement:
@@ -366,7 +366,7 @@ export const PORTFOLIO_PPT_DECKS: PortfolioPPTSlide[] = [
     subtitle: 'Directly Led by Ibraheem Talat, CEO & Founder',
     category: 'Agency Pitch Deck',
     categoryLabel: 'CEO Presentation',
-    image: '/src/assets/images/hero_agency_studio_1793901828541.jpg',
+    image: '/assets/images/hero_agency_studio_1793901828541.jpg',
     client: 'Web Ghost Coder Agency',
     turnaround: '1 - 2 Days Guarantee',
     problemStatement:

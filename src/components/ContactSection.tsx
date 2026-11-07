@@ -418,7 +418,7 @@ export const ContactSection = forwardRef<ContactSectionHandle>((props, ref) => {
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-black tracking-wider uppercase text-sky-800 dark:text-cyan-400 mb-2 bg-sky-100 dark:bg-cyan-950/60 border border-sky-300 dark:border-cyan-500/30 px-3 py-1 rounded-lg">
               <Terminal className="w-3.5 h-3.5" />
-              <span>// START YOUR PROJECT</span>
+              <span>START YOUR PROJECT</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-4" style={{ textWrap: 'balance' }}>
               Let’s Build Your Website in <span className="coder-gradient-text">1 - 2 Days</span>

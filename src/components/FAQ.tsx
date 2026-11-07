@@ -15,32 +15,32 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#060810] border-b border-cyan-500/20">
+    <section id="faq" className="py-20 bg-white dark:bg-[#060810] border-b border-slate-200 dark:border-cyan-500/20 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase text-cyan-400 mb-2 bg-cyan-950/60 border border-cyan-500/30 px-3 py-1 rounded-lg">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>// FAQ &amp; ORDER INFO</span>
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-sky-800 dark:text-cyan-400 mb-2 bg-sky-100 dark:bg-cyan-950/60 border border-sky-300 dark:border-cyan-500/30 px-3.5 py-1.5 rounded-xl shadow-xs">
+            <Terminal className="w-4 h-4" />
+            <span>08. FAQ &amp; ORDER INFO</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight" style={{ textWrap: 'balance' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight" style={{ textWrap: 'balance' }}>
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-base text-slate-300">
+          <p className="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 font-medium">
             Everything you need to know about our 1 - 2 days delivery process, pricing, and WhatsApp/Call orders.
           </p>
         </div>
 
         {/* Preferable note alert */}
-        <div className="mb-8 p-4 bg-gradient-to-r from-emerald-950/70 via-[#0b101e] to-cyan-950/70 rounded-xl border border-emerald-500/40 flex items-center justify-between gap-3 flex-wrap">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-emerald-300 font-semibold">
-            <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+        <div className="mb-8 p-4 sm:p-5 bg-gradient-to-r from-emerald-50 via-white to-sky-50 dark:from-emerald-950/70 dark:via-[#0b101e] dark:to-cyan-950/70 rounded-2xl border-2 border-emerald-300 dark:border-emerald-500/40 flex items-center justify-between gap-3 flex-wrap shadow-sm">
+          <div className="flex items-center gap-2.5 text-sm sm:text-base text-emerald-900 dark:text-emerald-300 font-bold">
+            <MessageSquare className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
             <span>WhatsApp and call orders are more comfortable and preferable. "Your choice is our code."</span>
           </div>
           <a
             href={AGENCY_CONFIG.primaryWhatsAppLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-mono text-cyan-300 hover:underline font-bold"
+            className="text-xs sm:text-sm font-mono text-sky-700 dark:text-cyan-300 hover:underline font-extrabold"
           >
             Chat: 03009464514 &rarr;
           </a>
@@ -61,10 +61,10 @@ export const FAQ: React.FC = () => {
                 setActiveCategory(cat.id);
                 setOpenIdx(null);
               }}
-              className={`px-3.5 py-1.5 text-xs font-mono font-semibold rounded-lg transition-colors cursor-pointer ${
+              className={`px-4 py-2 text-xs sm:text-sm font-bold rounded-xl transition-colors cursor-pointer ${
                 activeCategory === cat.id
-                  ? 'bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 shadow-md'
-                  : 'bg-[#0b101e] border border-cyan-500/20 text-slate-400 hover:text-white'
+                  ? 'bg-sky-600 dark:bg-cyan-400 text-white dark:text-slate-950 shadow-md'
+                  : 'bg-slate-100 dark:bg-[#0b101e] border border-slate-200 dark:border-cyan-500/20 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               {cat.label}
@@ -73,31 +73,31 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* Accordions */}
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {filteredFaqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
               <div
                 key={idx}
-                className="bg-[#0b101e]/80 rounded-xl border border-slate-800 hover:border-cyan-500/30 transition-colors overflow-hidden"
+                className="bg-slate-50 dark:bg-[#0b101e]/90 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/40 transition-colors overflow-hidden shadow-xs"
               >
                 <button
                   type="button"
                   onClick={() => toggleAccordion(idx)}
-                  className="w-full py-4 px-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full py-4.5 px-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                 >
-                  <span className="text-sm sm:text-base font-semibold text-white tracking-tight">
+                  <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight">
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-cyan-400 shrink-0 transition-transform duration-200 ${
+                    className={`w-5 h-5 text-sky-600 dark:text-cyan-400 shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60">
+                  <div className="px-6 pb-5 pt-1 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-200/60 dark:border-slate-800/60 font-normal">
                     {faq.answer}
                   </div>
                 )}
