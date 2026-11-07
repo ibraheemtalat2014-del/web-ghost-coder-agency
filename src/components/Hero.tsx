@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AGENCY_CONFIG } from '../data/agencyData';
-import { ArrowRight, Terminal, CheckCircle2, ShieldCheck, Zap, MessageSquare, Phone, Presentation, Clock, Award } from 'lucide-react';
+import { ArrowRight, Terminal, CheckCircle2, ShieldCheck, Zap, MessageSquare, Phone, Presentation, Clock, Award, Code2, Sparkles } from 'lucide-react';
+import heroStudioImg from '../assets/images/hero_agency_studio_1793901828541.jpg';
 
 interface HeroProps {
   onQuoteClick: () => void;
@@ -137,14 +138,22 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, onExploreServicesClick
           {/* Right Column: Hero Visual Asset (5 cols) */}
           <div className="lg:col-span-5 flex items-center">
             <div className="relative w-full rounded-3xl overflow-hidden border-2 border-sky-300 dark:border-cyan-500/40 bg-white dark:bg-[#070b16] shadow-2xl shadow-sky-900/10 dark:shadow-cyan-500/10 group">
-              <div className="relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-auto lg:h-[500px] w-full">
+              <div className="relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-auto lg:h-[500px] w-full bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 flex items-center justify-center">
                 <img
-                  src="/assets/images/hero_agency_studio_1793901828541.jpg"
+                  src={heroStudioImg}
                   alt="Web Ghost Coder Agency modern design studio"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
+                  onError={(e) => {
+                    // Fallback to static public path or sleek SVG container
+                    const target = e.currentTarget;
+                    if (!target.dataset.triedFallback) {
+                      target.dataset.triedFallback = 'true';
+                      target.src = '/assets/images/hero_agency_studio_1793901828541.jpg';
+                    }
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent pointer-events-none" />
 
                 {/* Floating Micro-Card Overlays with CEO name and Ordering time */}
                 <div className="absolute bottom-4 left-4 right-4 p-4 bg-white/95 dark:bg-[#090e1c]/95 backdrop-blur-md rounded-2xl border border-sky-200 dark:border-cyan-500/40 shadow-xl">

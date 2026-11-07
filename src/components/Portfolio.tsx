@@ -92,6 +92,10 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onQuoteCl
                   alt={project.title}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = 'none';
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b101e] via-[#0b101e]/20 to-transparent" />
 
