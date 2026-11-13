@@ -89,7 +89,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onQuoteCl
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} – ${project.categoryLabel} website built by Web Ghost Coder Agency`}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                   onError={(e) => {

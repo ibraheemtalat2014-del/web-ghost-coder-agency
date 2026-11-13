@@ -586,12 +586,12 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
                     <span>Web Ghost Coder Agency · CEO Ibraheem Talat</span>
                   </div>
 
-                  <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
+                  <div role="presentation" className="text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
                     Your Vision. Our Code.{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">
                       Extraordinary Websites.
                     </span>
-                  </h1>
+                  </div>
 
                   <p className="text-xs sm:text-sm text-slate-300 font-medium">
                     We transform your ideas into powerful digital experiences with modern designs, exceptional performance, and affordable pricing.

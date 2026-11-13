@@ -616,7 +616,7 @@ export const PortfolioDeck: React.FC<PortfolioDeckProps> = ({ onOrderProject }) 
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.6 }}
                         src={currentSlide.image}
-                        alt={currentSlide.title}
+                        alt={`${currentSlide.title} – ${currentSlide.category} case study preview by Web Ghost Coder Agency`}
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                       />

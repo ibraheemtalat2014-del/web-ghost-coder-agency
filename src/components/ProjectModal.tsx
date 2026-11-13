@@ -63,7 +63,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
           <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden border border-slate-800 bg-black">
             <img
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} – ${project.categoryLabel} case study preview`}
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />

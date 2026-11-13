@@ -141,7 +141,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, onExploreServicesClick
               <div className="relative aspect-[16/10] sm:aspect-[16/11] lg:aspect-auto lg:h-[500px] w-full bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 flex items-center justify-center">
                 <img
                   src={heroStudioImg}
-                  alt="Web Ghost Coder Agency modern design studio"
+                  alt="Web Ghost Coder Agency modern website development studio workspace in Pakistan"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                   onError={(e) => {
