@@ -64,6 +64,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             <img
               src={project.image}
               alt={`${project.title} – ${project.categoryLabel} case study preview`}
+              decoding="async"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />

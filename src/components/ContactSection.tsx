@@ -1,5 +1,6 @@
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { AGENCY_CONFIG } from '../data/agencyData';
+import { useRouter } from '../context/RouterContext';
 import {
   Phone,
   Mail,
@@ -107,6 +108,25 @@ export const ContactSection = forwardRef<ContactSectionHandle>((props, ref) => {
     confirmationChannel?: string;
   } | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
+
+  const { pendingPrefill, clearPendingPrefill } = useRouter();
+
+  useEffect(() => {
+    if (pendingPrefill) {
+      setFormData((prev) => ({
+        ...prev,
+        serviceType: pendingPrefill.serviceType || prev.serviceType,
+        budget: pendingPrefill.budget || prev.budget,
+        message: pendingPrefill.message
+          ? prev.message
+            ? `${prev.message}\n${pendingPrefill.message}`.trim()
+            : pendingPrefill.message
+          : prev.message,
+      }));
+      setSubmitSuccess(false);
+      clearPendingPrefill();
+    }
+  }, [pendingPrefill, clearPendingPrefill]);
 
   useImperativeHandle(ref, () => ({
     prefillForm: (data) => {

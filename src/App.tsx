@@ -1,18 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Advantages } from './components/Advantages';
-import { Services } from './components/Services';
-import { Portfolio } from './components/Portfolio';
-import { PortfolioDeck } from './components/PortfolioDeck';
-import { QuoteEstimator } from './components/QuoteEstimator';
-import { DevelopmentProcess } from './components/DevelopmentProcess';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { Pricing } from './components/Pricing';
-import { Testimonials } from './components/Testimonials';
-import { AboutUs } from './components/AboutUs';
-import { FAQ } from './components/FAQ';
-import { ContactSection, ContactSectionHandle } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ProjectModal } from './components/ProjectModal';
@@ -21,13 +8,21 @@ import { PortalLoginModal } from './components/portal/PortalLoginModal';
 import { PortalDashboard } from './components/portal/PortalDashboard';
 import { OrdersInboxModal } from './components/portal/OrdersInboxModal';
 import { CinematicIntro } from './components/CinematicIntro';
-import { WebsiteMenuCards } from './components/WebsiteMenuCards';
+import { SEOHead } from './components/SEOHead';
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { PortfolioPage } from './pages/PortfolioPage';
+import { ContactPage } from './pages/ContactPage';
+import { ServiceDetailPage } from './pages/ServiceDetailPage';
+import { WebsiteForShopsPage } from './pages/WebsiteForShopsPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { SERVICE_PAGES_DATA } from './data/servicePagesData';
+import { useRouter } from './context/RouterContext';
 import { ServiceItem, PortfolioItem } from './types';
 import { PortalUser, ProjectData } from './types/portal';
 
 export default function App() {
-  // Navigation & Form Scrolling
-  const contactRef = useRef<ContactSectionHandle>(null);
+  const { pathname, navigate, isValidRoute } = useRouter();
 
   // Modals state
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
@@ -39,8 +34,8 @@ export default function App() {
   const [portalUser, setPortalUser] = useState<PortalUser | null>(null);
   const [portalProject, setPortalProject] = useState<ProjectData | null>(null);
 
-  // Cinematic 3D Intro State: Always shows to user by default on visit or refresh
-  const [showIntro, setShowIntro] = useState<boolean>(true);
+  // Cinematic 3D Intro State: Show automatically on Home visit (and replayable on any page via Navbar)
+  const [showIntro, setShowIntro] = useState<boolean>(() => pathname === '/');
 
   const handleIntroComplete = () => {
     setShowIntro(false);
@@ -50,51 +45,53 @@ export default function App() {
     setShowIntro(true);
   };
 
-  const scrollToContact = () => {
-    const el = document.getElementById('contact');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  const handleQuoteClick = () => {
+    if (pathname === '/contact') {
+      const el = document.getElementById('contact');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
     }
+    navigate('/contact#contact');
   };
 
-  const scrollToServices = () => {
-    const el = document.getElementById('services');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  const handleExploreServicesClick = () => {
+    if (pathname === '/') {
+      const el = document.getElementById('services');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
     }
+    navigate('/website-development');
   };
 
   const handleOrderService = (serviceTitle: string) => {
-    contactRef.current?.prefillForm({
-      serviceType: serviceTitle,
-      message: `I would like to order the ${serviceTitle} for my organization.`,
+    navigate('/contact#contact', {
+      prefill: {
+        serviceType: serviceTitle,
+        message: `I would like to order the ${serviceTitle} for my organization.`,
+      },
     });
-    scrollToContact();
   };
 
   const handleOrderSimilarProject = (projectTitle: string) => {
-    contactRef.current?.prefillForm({
-      message: `I saw your sample project "${projectTitle}" and would like to build a similar website for my organization.`,
+    navigate('/contact#contact', {
+      prefill: {
+        message: `I saw your sample project "${projectTitle}" and would like to build a similar website for my organization.`,
+      },
     });
-    scrollToContact();
   };
 
   const handleSelectPackage = (packageName: string, price: string) => {
-    contactRef.current?.prefillForm({
-      serviceType: packageName,
-      budget: price,
-      message: `I want to proceed with the ${packageName} (${price}) package.`,
+    navigate('/contact#contact', {
+      prefill: {
+        serviceType: packageName,
+        budget: price,
+        message: `I want to proceed with the ${packageName} (${price}) package.`,
+      },
     });
-    scrollToContact();
-  };
-
-  const handleApplyEstimate = (data: { serviceType: string; budget: string; summary: string }) => {
-    contactRef.current?.prefillForm({
-      serviceType: data.serviceType,
-      budget: data.budget,
-      message: data.summary,
-    });
-    scrollToContact();
   };
 
   const handlePortalLoginSuccess = (user: PortalUser, project: ProjectData) => {
@@ -108,89 +105,90 @@ export default function App() {
     setPortalProject(null);
   };
 
+  const renderCurrentPage = () => {
+    if (!isValidRoute) {
+      return <NotFoundPage />;
+    }
+
+    if (pathname === '/') {
+      return (
+        <HomePage
+          onQuoteClick={handleQuoteClick}
+          onExploreServicesClick={handleExploreServicesClick}
+          onSelectService={(service) => setSelectedService(service)}
+          onOrderService={handleOrderService}
+          onSelectPackage={handleSelectPackage}
+        />
+      );
+    }
+
+    if (pathname === '/about') {
+      return <AboutPage onQuoteClick={handleQuoteClick} />;
+    }
+
+    if (pathname === '/portfolio') {
+      return (
+        <PortfolioPage
+          onSelectProject={(project) => setSelectedProject(project)}
+          onQuoteClick={handleQuoteClick}
+          onOrderProject={handleOrderSimilarProject}
+        />
+      );
+    }
+
+    if (pathname === '/contact') {
+      return <ContactPage />;
+    }
+
+    if (pathname === '/website-for-shops-pakistan') {
+      return <WebsiteForShopsPage />;
+    }
+
+    const serviceContent = SERVICE_PAGES_DATA[pathname];
+    if (serviceContent) {
+      return <ServiceDetailPage content={serviceContent} />;
+    }
+
+    return <NotFoundPage />;
+  };
+
   // If client is logged in to the portal, display the full-screen Portal Dashboard
   if (portalUser && portalProject) {
     return (
-      <PortalDashboard
-        user={portalUser}
-        initialProject={portalProject}
-        onLogout={handlePortalLogout}
-        onBackToAgency={() => {
-          // Temporarily view website while preserving session
-          setPortalUser(null);
-        }}
-      />
+      <>
+        <SEOHead />
+        <PortalDashboard
+          user={portalUser}
+          initialProject={portalProject}
+          onLogout={handlePortalLogout}
+          onBackToAgency={() => {
+            setPortalUser(null);
+          }}
+        />
+      </>
     );
   }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0b1120] text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-white transition-colors duration-200">
-      {/* 3D Cinematic Coding Intro Animation (5-6s, once per session, with skip button) */}
+      {/* Dynamic Per-Route SEO Title, Description, Canonicals, OpenGraph & Schema.org JSON-LD */}
+      <SEOHead />
+
+      {/* 3D Cinematic Coding Intro Animation (with instant Skip button & Replay from Navbar) */}
       {showIntro && <CinematicIntro onComplete={handleIntroComplete} />}
 
-      {/* Top 3-Zone Navigation */}
+      {/* Top 3-Zone Multi-Page Navigation */}
       <Navbar
-        onQuoteClick={scrollToContact}
+        onQuoteClick={handleQuoteClick}
         onClientPortalClick={() => setIsPortalLoginOpen(true)}
         onOrdersClick={() => setIsOrdersModalOpen(true)}
         onReplayIntro={handleReplayIntro}
       />
 
-      {/* Main Agency Sections */}
-      <main className="flex-1">
-        {/* Hero Section */}
-        <Hero
-          onQuoteClick={scrollToContact}
-          onExploreServicesClick={scrollToServices}
-        />
+      {/* Route-Matched Agency Page */}
+      <main className="flex-1">{renderCurrentPage()}</main>
 
-        {/* Avant-Garde Website Directory & Representable Menu Cards Deck */}
-        <WebsiteMenuCards />
-
-        {/* 3 Core Advantages Section */}
-        <Advantages onQuoteClick={scrollToContact} />
-
-        {/* 5 Core Specialized Services */}
-        <Services
-          onSelectService={(service) => setSelectedService(service)}
-          onOrderService={handleOrderService}
-        />
-
-        {/* Sample Projects Portfolio */}
-        <Portfolio
-          onSelectProject={(project) => setSelectedProject(project)}
-          onQuoteClick={scrollToContact}
-        />
-
-        {/* Morphing Portfolio PPT Presentation Deck */}
-        <PortfolioDeck onOrderProject={handleOrderSimilarProject} />
-
-        {/* Interactive Quote & Timeline Estimator */}
-        <QuoteEstimator onApplyEstimateToForm={handleApplyEstimate} />
-
-        {/* 5-Step Development Process */}
-        <DevelopmentProcess onQuoteClick={scrollToContact} />
-
-        {/* Why Choose Us & Tech Advantage */}
-        <WhyChooseUs />
-
-        {/* Transparent Pricing Packages */}
-        <Pricing onSelectPackage={handleSelectPackage} />
-
-        {/* Attributable Testimonials */}
-        <Testimonials />
-
-        {/* About Agency & Engineering Stack */}
-        <AboutUs onQuoteClick={scrollToContact} />
-
-        {/* FAQ Section */}
-        <FAQ />
-
-        {/* Functional Contact Form Section */}
-        <ContactSection ref={contactRef} />
-      </main>
-
-      {/* Footer */}
+      {/* Multi-Page Agency Footer */}
       <Footer />
 
       {/* Floating 1-Tap WhatsApp Contact Button */}

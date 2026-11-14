@@ -1009,9 +1009,26 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(__dirname, 'dist');
+    const VALID_PUBLIC_ROUTES = new Set([
+      '/',
+      '/about',
+      '/website-for-shops-pakistan',
+      '/website-development',
+      '/web-design',
+      '/ecommerce-development',
+      '/business-websites',
+      '/portfolio-websites',
+      '/ai-website-development',
+      '/custom-software-development',
+      '/seo-services',
+      '/portfolio',
+      '/contact',
+    ]);
     app.use(express.static(distPath));
     app.get('*', (req: Request, res: Response) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      const cleanPath = req.path.length > 1 ? req.path.replace(/\/+$/, '') : req.path;
+      const status = VALID_PUBLIC_ROUTES.has(cleanPath) ? 200 : 404;
+      res.status(status).sendFile(path.join(distPath, 'index.html'));
     });
   }
 

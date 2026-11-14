@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useSpring, useMotionValue } from 'motion/react';
+import { LogoMark } from './Logo';
 import {
   Terminal,
   Zap,
@@ -293,9 +294,7 @@ export const CinematicIntro: React.FC<CinematicIntroProps> = ({ onComplete }) =>
       <div className="absolute top-5 left-5 right-5 flex flex-wrap items-center justify-between gap-4 z-50">
         {/* Brand identity */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 via-teal-300 to-purple-500 flex items-center justify-center text-slate-950 font-mono font-black text-xs shadow-lg shadow-cyan-500/40">
-            &lt;/&gt;
-          </div>
+          <LogoMark decorative className="w-9 h-9 shrink-0 shadow-lg shadow-cyan-500/30" />
           <div>
             <div className="text-xs font-mono font-black text-white tracking-wider flex items-center gap-2">
               <span>WEB GHOST CODER</span>

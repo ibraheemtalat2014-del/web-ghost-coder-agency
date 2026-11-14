@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AGENCY_CONFIG } from '../data/agencyData';
-import { ArrowRight, Terminal, CheckCircle2, ShieldCheck, Zap, MessageSquare, Phone, Presentation, Clock, Award, Code2, Sparkles } from 'lucide-react';
+import { Link } from '../context/RouterContext';
+import { ArrowRight, Terminal, CheckCircle2, ShieldCheck, Zap, MessageSquare, Phone, Presentation, Clock, Award, Store } from 'lucide-react';
 import heroStudioImg from '../assets/images/hero_agency_studio_1793901828541.jpg';
 
 interface HeroProps {
@@ -31,12 +32,13 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, onExploreServicesClick
               </div>
             </div>
 
-            {/* Required Headline - Clear and impactful */}
-            <h1 className="text-3xl sm:text-5xl lg:text-[3.6rem] font-black tracking-tight text-slate-900 dark:text-white leading-[1.12] mb-5" style={{ textWrap: 'balance' }}>
-              Your Vision. Our Code.{' '}
+            {/* Primary H1 Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.3rem] font-black tracking-tight text-slate-900 dark:text-white leading-[1.14] mb-5" style={{ textWrap: 'balance' }}>
+              Professional Websites for{' '}
               <span className="coder-gradient-text">
-                Extraordinary Websites.
+                Shops and Businesses in Pakistan
               </span>
+              , Ready in 1 to 2 Days
             </h1>
 
             {/* Required Supporting Text - Highly readable, comfortable line-height */}
@@ -89,27 +91,34 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, onExploreServicesClick
             </div>
 
             {/* Clear CTA Buttons - Generous sizing */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8">
+            <div className="flex flex-wrap items-stretch sm:items-center gap-3 mb-8">
               <button
                 onClick={onQuoteClick}
-                className="px-7 py-4 text-sm sm:text-base font-black text-white dark:text-slate-950 bg-gradient-to-r from-sky-500 to-emerald-500 dark:from-cyan-400 dark:to-emerald-400 hover:from-sky-600 hover:to-emerald-600 dark:hover:from-cyan-300 dark:hover:to-emerald-300 rounded-2xl shadow-lg shadow-sky-500/25 transition-all hover:scale-[1.02] flex items-center justify-center gap-2.5 cursor-pointer whitespace-nowrap"
+                className="px-6 py-4 text-sm sm:text-base font-black text-white dark:text-slate-950 bg-gradient-to-r from-sky-500 to-emerald-500 dark:from-cyan-400 dark:to-emerald-400 hover:from-sky-600 hover:to-emerald-600 dark:hover:from-cyan-300 dark:hover:to-emerald-300 rounded-2xl shadow-lg shadow-sky-500/25 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
               >
                 <span>Get a Free Quote</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
+              <Link
+                to="/website-for-shops-pakistan"
+                className="px-5 py-4 text-sm sm:text-base font-extrabold text-emerald-900 dark:text-emerald-200 bg-emerald-100 hover:bg-emerald-200 dark:bg-emerald-950/70 dark:hover:bg-emerald-900/90 border-2 border-emerald-400 dark:border-emerald-500/60 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
+              >
+                <Store className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span>Website for Your Shop</span>
+              </Link>
               <button
                 onClick={onExploreServicesClick}
-                className="px-6 py-4 text-sm sm:text-base font-bold text-sky-900 dark:text-cyan-200 bg-sky-100 hover:bg-sky-200 dark:bg-[#0d1424] dark:hover:bg-[#141f38] dark:hover:text-white border border-sky-300 dark:border-cyan-500/40 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap shadow-sm"
+                className="px-5 py-4 text-sm sm:text-base font-bold text-sky-900 dark:text-cyan-200 bg-sky-100 hover:bg-sky-200 dark:bg-[#0d1424] dark:hover:bg-[#141f38] dark:hover:text-white border border-sky-300 dark:border-cyan-500/40 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap shadow-sm"
               >
                 <span>Explore Our Services</span>
               </button>
-              <a
-                href="#portfolio-deck"
-                className="px-5 py-4 text-xs sm:text-sm font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 hover:bg-emerald-200 dark:bg-emerald-950/50 dark:hover:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-500/40 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-sm"
+              <Link
+                to="/portfolio#portfolio-deck"
+                className="px-5 py-4 text-xs sm:text-sm font-bold text-slate-800 dark:text-cyan-300 bg-white hover:bg-slate-100 dark:bg-[#0b101e] dark:hover:bg-[#141f38] border border-slate-300 dark:border-cyan-500/30 rounded-2xl transition-all flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
               >
-                <Presentation className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <Presentation className="w-4 h-4 text-sky-600 dark:text-cyan-400" />
                 <span>View PPT Deck</span>
-              </a>
+              </Link>
             </div>
 
             {/* Instant Contact Badges for Direct Lead Capture */}
@@ -142,6 +151,8 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, onExploreServicesClick
                 <img
                   src={heroStudioImg}
                   alt="Web Ghost Coder Agency modern website development studio workspace in Pakistan"
+                  decoding="async"
+                  fetchPriority="high"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                   onError={(e) => {

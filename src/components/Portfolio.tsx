@@ -90,6 +90,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject, onQuoteCl
                 <img
                   src={project.image}
                   alt={`${project.title} – ${project.categoryLabel} website built by Web Ghost Coder Agency`}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                   onError={(e) => {
